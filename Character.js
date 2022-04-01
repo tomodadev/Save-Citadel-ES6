@@ -1,12 +1,15 @@
 export default class Character {
+  id;
   name;
   episode;
   gender;
   image;
   rank;
   color;
+  power;
 
-  constructor(name, episode, gender, image) {
+  constructor(id, name, episode, gender, image) {
+    this.id = id;
     this.name = name;
     this.episode = episode;
     this.gender = gender;
@@ -17,6 +20,7 @@ export default class Character {
 
   calculateColorAndRank() {
     const power = parseInt(this.episode.slice(-2).replaceAll("/", ""));
+    this.power = 100 - power;
     if (power <= 5) {
       this.rank = "Rickillable";
       this.color = "red";
@@ -38,11 +42,24 @@ export default class Character {
     }
   }
 
+  //if win, return true
   attack(character) {
-    if (this.episode < character.episode) {
+    console.log(this.power, character.power);
+    if (this.power === character.power) {
+      const random = Math.random();
+      if (random < 0.5) {
+        console.log(this.name, "Win");
+        return true;
+      } else {
+        console.log(this.name, "Lost");
+        return false;
+      }
+    } else if (this.power > character.power) {
       console.log(this.name, "Win");
+      return true;
     } else {
-      console.log(this.name, "Lose");
+      console.log(this.name, "Lost");
+      return false;
     }
   }
 }

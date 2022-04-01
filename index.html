@@ -1,27 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>R&M</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <script type="module" src="./script.js"></script>
-</head>
 
-<body>
+    <style>
+      #outer {
+        position: relative;
+        width: 100px;
+        height: 5px;
+        border: 1px solid black;
+      }
+
+      #inner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background-color: green;
+        transition: all 1s ease;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="outer">
+      <div id="inner"></div>
+    </div>
     <div id="start">
-        <div>Rick and morty</div>
-        <button id="playBtn">Play</button>
+      <div>Rick and morty</div>
+      <button id="playBtn">Play</button>
     </div>
 
     <div id="choose">
-       <div>Choose your character</div>
-       <div id="choose-characters">
-       </div>
+      <div>Choose your character</div>
+      <div id="choose-characters"></div>
     </div>
-    
-    <div id="play"></div>
-</body>
 
+    <div id="play">
+      Battle!
+      <div id="play-scene"></div>
+    </div>
+  </body>
 </html>
