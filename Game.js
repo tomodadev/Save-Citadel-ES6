@@ -11,9 +11,10 @@ export default class Game {
   life = 3;
   characters;
   boss;
-  player;
+  currentCharacter;
   enemy;
   shuffledCharacters;
+  chosenCharacters = [];
 
   constructor() {
     if (instance) {
@@ -41,8 +42,13 @@ export default class Game {
     this.playScreen.hide();
   }
 
-  setCurrentPlayer(character) {
-    this.player = character;
-    console.log("current player", this.characters);
+  setChosenCharacters(character) {
+    this.chosenCharacters = character;
+    console.log("chosen characters", this.chosenCharacters);
+  }
+
+  setCurrentCharacter(character) {
+    this.currentCharacter = this.chosenCharacters[0];
+    console.log("current character", this.chosenCharacters[0]);
   }
 }

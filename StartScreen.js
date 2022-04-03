@@ -17,4 +17,11 @@ export default class StartScreen extends Screen {
     this.game.chooseScreen.show();
     this.game.chooseScreen.populate();
   }
+
+  helpClicked() {
+    console.log("play clicked", this);
+    this.hide();
+    this.game.chooseScreen.show();
+    this.game.chooseScreen.populate();
+  }
 }

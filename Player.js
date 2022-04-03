@@ -7,5 +7,7 @@ export default class Player extends Character {
     super(...params);
   }
 
-  addExp(exp) {}
+  addExp(exp) {
+    exp;
+  }
 }
